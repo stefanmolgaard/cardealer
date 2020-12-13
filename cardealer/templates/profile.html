@@ -1,0 +1,139 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <div class="main-body">
+          <nav class="nav nav-pills nav-justified">
+            <a class="nav-item nav-link" href="{{ url_for('list') }}">Listings</a>
+            <a class="nav-item nav-link" href="{{ url_for('land_page') }}">Search</a>
+            <a class="nav-item nav-link active" href="{{ url_for('profile') }}">Profile</a>
+          </nav>
+    
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img class="rounded-circle amount-img" src="{{ image_file }}">
+                    <div class="mt-3">
+                      <h4>{{ current_user.username }}</h4>
+                      <p class="text-secondary mb-1">Full Stack Developer</p>
+                      <p class="text-muted font-size-sm">Cardealer</p>
+                      <a href="{{ url_for('contact') }}"><button class="btn btn-primary">Message</button></a>
+                      <a href="{{ url_for('logout') }}"><button type="button" class="btn btn-danger">Logout</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="card mt-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                    <form method="POST" action="" enctype="multipart/form-data">
+                      {{ form.hidden_tag() }}
+                      <fieldset class="form-group">
+                          <legend class="border-bottom mb-4">Account Info</legend>
+                          <div class="form-group">
+                              {{ form.CVR.label(class="form-control-label") }}
+                              {% if form.CVR.errors %}
+                                  {{ form.CVR(class="form-control form-control-lg is-invalid") }}
+                                  <div class="invalid-feedback">
+                                      {% for error in form.CVR.errors %}
+                                          <span>{{ error }}</span>
+                                      {% endfor %}
+                                  </div>
+
+                              {% else %}
+                                  {{ form.CVR(class="form-control form-control-lg") }}
+                              {% endif %}
+                          </div>
+                              {{ form.email.label(class="form-control-label") }}
+                              {% if form.email.errors %}
+                                  {{ form.email(class="form-control form-control-lg is-invalid") }}
+                                  <div class="invalid-feedback">
+                                      {% for error in form.email.errors %}
+                                          <span>{{ error }}</span>
+                                      {% endfor %}
+                                  </div>
+                              {% else %}
+                                  {{ form.email(class="form-control form-control-lg") }}
+                              {% endif %}
+                              <br><br>
+                              <div class="form-group">
+                                {{ form.picture.label() }}
+                                {{ form.picture(class="form-control-file") }}
+                                {% if form.picture.errors %}
+                                  {% for error in form.picture.errors %}
+                                    <span class="text-danger">{{ error }}</span><br>
+                                  {% endfor %}
+                                {% endif %}
+                              </div>
+                              {{ form.submit(class="btn btn-outline-info mt-4") }}
+                          </div>
+                        
+                          <div class="row gutters-sm">
+                      </fieldset>
+                    </form>
+                  <div class="form-group">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+            </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Full Name</h6>
+                    </div>
+
+
+                    <div class="col-sm-9 text-secondary">
+                      {{ current_user.username }}
+                    </div>
+                  </div>
+
+
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+
+
+                    <div class="col-sm-9 text-secondary">
+                      {{ current_user.email }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ current_user.phone }}
+                    </div>
+                  </div>
+
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">CVR</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ current_user.CVR }}
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+  </div>
+</div>
+{% endblock %}

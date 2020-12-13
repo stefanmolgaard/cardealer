@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<br><br><br><br><br><br>
+<div class="card-deck">
+    <div class="card">
+      <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{ current.cardata.Brand }}</h5>
+        <p class="card-text">{{ current.cardata.comment }}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">{{ current.cardata.time }}</small>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{ current.cardata.Brand }}</h5>
+        <p class="card-text">{{ current.cardata.comment }}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">{{ current.cardata.time }}</small>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{ current.cardata.Brand }}</h5>
+        <p class="card-text">{{ current.cardata.comment }}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">{{ current.cardata.time }}</small>
+      </div>
+    </div>
+  </div>
+{% endblock %}

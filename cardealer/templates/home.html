@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="w3-row">
+  <div class="w3-half w3-grey w3-container w3-center" style="height: 100%">
+    <div class="w3-padding-64">
+      <h1>CarDealer</h1>
+      <img src="https://i.imgur.com/Bp5WiVf.png" alt="Logo" width="500" height="400">
+    </div>
+    <div class="w3-padding-64">
+      Welcome to Cardealer Project - The most advanced tool to search for cars based on their VIN/Stel Numbers.
+    </div>
+  </div>
+  <div class="w3-half w3-blue-grey w3-container" style="height: 100%">
+    <div class="w3-padding-64 w3-center">
+      <h1>Get Started!</h1>
+      <img src="https://www.w3schools.com//w3images/avatar3.png" class="w3-margin w3-circle" alt="Person" style="width:25%">
+      <div class="w3-left-align w3-padding-large">
+      </div>
+      {% if current_user.is_authenticated %}
+        <a href="{{ url_for('profile') }}"><button type="button" class="btn btn-danger">Account</button>
+        <a href="{{ url_for('logout') }}"><button type="button" class="btn btn-danger">Logout</button>
+      {% else %}  
+        <a href="{{ url_for('register_page') }}"><button class="btn btn-outline-dark mb-2">Register</button></a><br>
+        <a href="{{ url_for('login_page') }}"><button class="btn btn-outline-dark">Login</button></a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

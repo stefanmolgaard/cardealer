@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<nav class="nav nav-pills nav-justified">
+  <a class="nav-item nav-link" href="{{ url_for('list') }}">My Listings</a>
+  <a class="nav-item nav-link active" href="#">Search</a>
+  <a class="nav-item nav-link" href="{{ url_for('profile') }}">Profile</a>
+</nav>
+<br><br><br><br><br>
+<h1 class="text-center">Choose your Action</h1>
+<br>
+<div class="container page-form">
+  <form>
+    <a button type="button" class="btn btn-primary btn-lg btn-block" href="{{ url_for('sell_vehicle') }}">Sell</a>
+    <a button type="button" class="btn btn-primary btn-lg btn-block" href="{{ url_for('buy_vehicle') }}">Buy</a>
+    </div>
+    <div class="text-center">
+    </div>
+</form>
+</div>
+
+
+
+{% endblock %}
